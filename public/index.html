@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <title>Scraping With Mongoose</title>
     <style>
-      body { background-color: #F2F6D0 }
+      body {
+        background-image: url("./newspaper.jpeg");
+      }
+  
+      .navbar {
+        background-color: turquoise;
+      }
       #wrapper {
         width: 960px;
         margin-left: auto;
@@ -16,13 +22,18 @@
         overflow: auto;
         width: 60%;
         height: 700px;
+        background: rgba(122, 104, 100, 0.5);
       }
       #notes {
         float: right;
         width: 30%;
       }
-      textarea, input {
+      .btn-success {
         display: block;
+        background-color: 
+      }
+      textarea, input {
+        /* display:gvfcz block; */
         width: 100%;
         background-color: #FCF5C7;
       }
@@ -34,16 +45,48 @@
         height: 200px;
         font-size: 18px;
       }
+   .top {
+        text-align: center;
+        background-color: transparent;
+        font-family: 'Song Myung', serif;
+      }
+      a {
+        color: black;
+      }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <script src="./app.js"></script>
+    <script src="./index.js"></script>
+   
+    <link href="https://fonts.googleapis.com/css?family=Song+Myung" rel="stylesheet">
   </head>
   <body>
-    <div id="wrapper">
-      <h1>Mongo Scraper</h1>
+   
+        <nav class="navbar navbar-default">
+            
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">Mongo Scraper</a>
+              </div>
+              <ul class="nav navbar-nav">
+                <button id="home" class="btn btn-primary">Home</button>
+                <button id="savedArticles" class="btn btn-primary">Scrape New Articles</button>
+                <button id="scrapeNew"  class="btn btn-primary">Saved Articles</button>
+              </ul>
+            
+          </nav>
+         <div class="top">
+           
+              <h1 style="font-size: 100px">MONGO SCRAPER</h1> 
+              <h5 style="font-size: 50px">NEW YORK TIMES EDITION</h5>
+         
+            
+        
       <h2><i></i></h2>
       <div id="articles"></div>
       <div id="notes"></div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="app.js"></script>
+ 
   </body>
 </html>

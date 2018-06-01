@@ -4,7 +4,7 @@ var mongoose = require("mongoose");
 var cheerio = require("cheerio");
 var axios = require("axios");
 
-var db = require("./models");
+var dbArticle = require("./models/article");
 
 var PORT = 3000;
 
@@ -20,7 +20,7 @@ mongoose.Promise = Promise;
 
 mongoose.connect(MONGODB_URI);
 
-app.get("/scrape", function(req, res) {
+app.get("/api/scrape", function(req, res) {
     axios.get("https://www.nytimes.com/section/technology").then(function(response){
         var $ = cheerio.load(response.data);
 
@@ -34,7 +34,7 @@ app.get("/scrape", function(req, res) {
             .children("a")
             .attr("href");
         
-            db.Article.create(result)
+            dbArticle.create(result)
             .then(function(dbArticle){
                 console.log(dbArticle);
             })
@@ -46,20 +46,6 @@ app.get("/scrape", function(req, res) {
 
         res.send("Scrape Complete");
     })
-
-    app.get("/articles/:id", function(req,res){
-        db.Article.findOne({_id:req.params.id})
-        .populate("note")
-        .then(function(dbArticle){
-            res.json(dbArticle);
-                
-            
-        })
-        .catch(function(err){
-            res.json(err);
-        });
-
-    });
     
 })
 app.post("/articles/:id", function(req, res) {
@@ -77,7 +63,36 @@ app.post("/articles/:id", function(req, res) {
     
         res.json(err);
       });
+  })
+  
+  app.get("/articles/:id", function(req,res){
+    db.Article.findOne({_id:req.params.id})
+    .populate("note")
+    .then(function(dbArticle){
+        res.json(dbArticle);
+            
+        
+    })
+    .catch(function(err){
+        res.json(err);
+    });
+
+});
+
+app.get("/api/articles", function(req, res) {
+   
+    dbArticle.find({})
+      .then(function(dbArticle) {
+
+        res.json(dbArticle);
+      })
+      .catch(function(err) {
+      
+        res.json(err);
+      });
   });
+  
+
   
     app.listen(PORT, function() {
         console.log("App running on port " + PORT + "!");
