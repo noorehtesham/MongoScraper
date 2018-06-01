@@ -87,7 +87,7 @@ s
     console.log("saved");
     $.ajax({
       method: "PUT",
-      url: "/api/headlines",
+      url: "/api/articles",
       data: savedArticle
     }).then(function (data) {
 
