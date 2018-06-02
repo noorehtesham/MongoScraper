@@ -83,14 +83,15 @@ s
   $(document).on("click", ".btn-success", function handleArticleSave() {
 
     var savedArticle = $(this).parents(".card").data();
+   
     savedArticle.saved = true;
-    console.log("saved");
+   
     $.ajax({
-      method: "PUT",
+      method: "POST",
       url: "/api/articles",
       data: savedArticle
     }).then(function (data) {
-
+      console.log(data);
       if (data.ok) {
 
         initPage();

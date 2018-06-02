@@ -64,6 +64,8 @@ app.post("/articles/:id", function(req, res) {
         res.json(err);
       });
   })
+
+
   
   app.get("/articles/:id", function(req,res){
     db.Article.findOne({_id:req.params.id})
@@ -80,7 +82,7 @@ app.post("/articles/:id", function(req, res) {
 });
 
 app.get("/api/articles", function(req, res) {
-   
+   console.log(req);
     dbArticle.find({})
       .then(function(dbArticle) {
 
@@ -91,6 +93,33 @@ app.get("/api/articles", function(req, res) {
         res.json(err);
       });
   });
+
+  app.post("/api/articles", function(req, res) {
+    console.log(req);
+     dbArticle.find({})
+       .then(function(dbArticle) {
+ 
+         res.json(dbArticle);
+       })
+       .catch(function(err) {
+       
+         res.json(err);
+       });
+   });
+
+  app.get("/notes", function(req, res) {
+  
+    dbNote.find({})
+      .then(function(dbNote) {
+
+        res.json(dbNote);
+      })
+      .catch(function(err) {
+      
+        res.json(err);
+      });
+  });
+  
   
 
   

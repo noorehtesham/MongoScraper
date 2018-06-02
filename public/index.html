@@ -57,8 +57,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     
-    <script src="./app.js"></script>
-    <script src="./index.js"></script>
+   
    
     <link href="https://fonts.googleapis.com/css?family=Song+Myung" rel="stylesheet">
   </head>
@@ -71,8 +70,8 @@
               </div>
               <ul class="nav navbar-nav">
                 <button id="home" class="btn btn-primary">Home</button>
-                <button id="savedArticles" class="btn btn-primary">Scrape New Articles</button>
-                <button id="scrapeNew"  class="btn btn-primary">Saved Articles</button>
+                <button id="savedArticles" class="btn btn-primary" href="/saved">Scrape New Articles</button>
+                <button id="scrapeNew"  class="btn btn-primary" >Saved Articles</button>
               </ul>
             
           </nav>
@@ -87,6 +86,9 @@
       <div id="articles"></div>
       <div id="notesArea"></div>
     </div>
+    <script src="./app.js"></script>
+    <script src="./index.js"></script>
  
   </body>
+  
 </html>

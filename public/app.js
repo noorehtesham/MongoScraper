@@ -42,30 +42,30 @@ $.getJSON("/articles", function(data) {
       });
   });
 
-  $(document).on("click", "#savenote", function() {
+  // $(document).on("click", "#savenote", function() {
 
-    var thisId = $(this).attr("data-id");
+  //   var thisId = $(this).attr("data-id");
 
-    $.ajax({
-      method: "POST",
-      url: "/articles/" + thisId,
-      data: {
+  //   $.ajax({
+  //     method: "POST",
+  //     url: "/articles/" + thisId,
+  //     data: {
         
-        title: $("#titleinput").val(),
+  //       title: $("#titleinput").val(),
      
-        body: $("#bodyinput").val()
-      }
-    })
+  //       body: $("#bodyinput").val()
+  //     }
+  //   })
    
-      .then(function(data) {
+  //     .then(function(data) {
      
-        console.log(data);
+  //       console.log(data);
        
-        $("#notesArea").empty();
-      });
+  //       $("#notesArea").empty();
+  //     });
   
 
-    $("#titleinput").val("");
-    $("#bodyinput").val("");
-  });
+  //   $("#titleinput").val("");
+  //   $("#bodyinput").val("");
+  // });
   
