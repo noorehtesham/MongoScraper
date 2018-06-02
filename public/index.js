@@ -41,7 +41,7 @@ s
         "<h4 class='card-title'>",
         "<a>" + article.title + "</a> <br>", 
         article.link,
-        "<a class='btn btn-success save'>",
+        "<a class='btn btn-success btn-secondary save'>",
         "Save Article",
         "</a>",
         "</h3>",
@@ -80,7 +80,7 @@ s
     articles.append(emptyAlert);
   }
 
-  $(document).on("click", "#saveNote", function handleArticleSave() {
+  $(document).on("click", ".btn-success", function handleArticleSave() {
 
     var savedArticle = $(this).parents(".card").data();
     savedArticle.saved = true;

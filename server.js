@@ -6,7 +6,7 @@ var axios = require("axios");
 
 var dbArticle = require("./models/article");
 
-var PORT = 3000;
+var PORT = process.env.PORT || 3000
 
 var app = express();
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
