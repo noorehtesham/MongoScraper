@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 
   var articles = $("#articles");
@@ -11,7 +10,7 @@ $(document).ready(function () {
 
     articles.empty();
     $.get("/api/headlines?saved=false").then(function (data) {
-s
+      s
       if (data && data.length) {
         renderArticles(data);
       } else {
@@ -39,7 +38,7 @@ s
         "<div class='card'>",
         "<div class='card-body'>",
         "<h4 class='card-title'>",
-        "<a>" + article.title + "</a> <br>", 
+        "<a>" + article.title + "</a> <br>",
         article.link,
         "<a class='btn btn-success btn-secondary save'>",
         "Save Article",
@@ -82,13 +81,14 @@ s
 
   $(document).on("click", ".btn-success", function handleArticleSave() {
 
-    var savedArticle = $(this).parents(".card").data();
-   
+    var savedArticle =  $(this).parents(".card").data();
     savedArticle.saved = true;
-   
+
+    console.log(savedArticle, "saved article")
+
     $.ajax({
       method: "POST",
-      url: "/api/articles",
+      url: "/api/articles/" + savedArticle._id,
       data: savedArticle
     }).then(function (data) {
       console.log(data);
@@ -100,7 +100,7 @@ s
   });
 
   $(document).on("click", "#savedArticles", function getSavedArticles() {
-    $.get("/api/articles").then(function(data){
+    $.get("/api/articles").then(function (data) {
       renderArticles(data);
 
     })
