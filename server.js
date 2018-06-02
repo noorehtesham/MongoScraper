@@ -104,6 +104,11 @@ app.get("/api/articles", function (req, res) {
 });
 
 app.post("/api/articles/:id", function (req, res) {
+  // TO DO: here you will see that the id is being passed from index.js into here.
+  // Now you will need to store the info in mongo
+  // I think you may also need to store more information than just the id and the saved = true
+  // potentially the URL, etc.
+  
   console.log(req.params.id, "id");
   console.log(req.body, "body")
   // dbArticle.find({})
